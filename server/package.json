@@ -1,0 +1,21 @@
+{
+  "name": "1byzerolabs",
+  "version": "1.0.0",
+  "description": "SaintGobainCalc app by 1byzerolabs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "anirban bhui",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "1.14.1",
+    "express": "4.13.3",
+    "jsonfile": "^2.4.0",
+    "mongoose": "^4.8.5",
+    "morgan": "^1.8.1",
+    "node-uuid": "^1.4.7",
+    "nodemailer": "^3.1.7"
+  }
+}

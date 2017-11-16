@@ -1,0 +1,47 @@
+		<div class="row">
+			<div class="col s6 center">
+				<a href="#type" ng-click="type_clear()"><img class="responsive-img" src="img/clear.png" height="300px" width="250px"></a>
+				<p class="center"><span style="font-size: 1.5em;">Clear</span></p>
+			</div>
+			<div class="col s6 center">
+				<a href="#type" ng-click="type_parsol()"><img class="responsive-img " src="img/parsol.jpg" height="300px" width="250px"></a>
+				<p class="center"><span style="font-size: 1.5em;">Parsol</span></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s6 center">
+				<a href="#type" ng-click="type_diamant()"><img class="responsive-img" src="img/Diamant.jpg" height="300px" width="250px"></a>
+				<p class="center"><span style="font-size: 1.5em;">Diamant</span></p>
+			</div>
+			<div class="col s6 center">
+				<a href="#type" ng-click="type_master()"><img class="responsive-img " src="img/master-ligne.jpg" height="300px" width="250px"></a>
+				<p class="center"><span style="font-size: 1.5em;">Master</span></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s6 center">
+				<a href="#type" ng-click="type_mirastar()"><img class="responsive-img" src="img/rain.png" height="300px" width="250px"></a>
+				<p class="center"><span style="font-size: 1.5em;">Mirastar</span></p>
+			</div>
+			<div class="col s6 center" onclick="Materialize.toast('10% Timeless off Applied', 1000, 'rounded')">
+				<a href="#type" ng-click="type_timeless()"><img class="responsive-img" src="img/Timeless.jpg" height="300px" width="250px"></a>
+				<!-- <div style="position:relative;display:block; margin: 0 auto;width:82px;"> -->
+				<!-- <div id="burst-12" style="position:relative;float:left;"><p style="position:relative;z-index:100;color:white;font-size:9px;line-height:20px;">10%</p></div> -->
+				<!-- <p style="margin-left:25px;">Timeless</p> -->
+				<p class="center"><span style="font-size: 1.5em;">Timeless</span></p>
+				</div>
+			</div>
+		</div>
+<script>
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+	$('.cubical').removeClass('active');
+});
+
+   $(window).on('popstate', function() {
+  // alert('button was pressed...');
+   $('.modal').closeModal();
+   setTimeout(1000);
+   $('.lean-overlay').remove();
+});
+</script>

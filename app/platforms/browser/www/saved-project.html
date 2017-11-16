@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body ng-app="SavedProject" ng-controller="SavedProjectController">
+	<div class="row">
+			<div class="input-field col s12 center">
+				<img src="img/logo.jpg" alt="" class="responsive-img valign profile-image-login">
+				<p class="center login-form-text">Saved Project </p>
+            </div>
+	</div>
+	
+	<div class="row" ng-if="!Data" style="text-align:center;">
+			No Saved Projects
+		</div>
+	<ul style="text-align:center;margin:5px;" class="collapsible" data-collapsible="accordion">	
+	<li ng-if="Data" ng-repeat="projects in Data">
+		<div class="col s12 collapsible-header"">
+			<a href="" class="waves-light ">{{projects.projectName}}</a>
+			
+		</div>
+		<div class = 'collapsible-body'>
+				<table class="striped">
+					<tr>
+						<th>Glass Nature</th> <td>{{projects.glassNature}}</td>
+					</tr>
+					
+					<tr>
+						<th>Glass Type</th><td>{{projects.glassType}}</td>
+					</tr>
+					<tr>						
+						<th>Glass Sub-Class</th> <td>{{projects.glassSubClass}}</td>
+					</tr>
+					
+					<tr>
+						<th>Height</th><td>{{projects.height || 0 }}</td>
+					</tr>
+					<tr>
+						<th>Width</th><td>{{projects.width || 0 }}</td>
+					</tr>
+					<tr>
+						<th>Width 1</th><td>{{projects.width1 || 0}}</td>
+					</tr>
+					<tr>
+						<th>Width 2</th><td>{{projects.width2 || 0}}</td>
+					</tr>
+
+					
+					
+				</table>
+			</div>
+    </li>
+	</div>
+	
+		
+		
+
+ <!-- jquery plugin -->
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ <!-- materialize css -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+ <!-- angular plugin -->
+ 
+ <script>
+ Storage.prototype.setObj = function(key, obj) {
+		return this.setItem(key, JSON.stringify(obj))
+	}
+	Storage.prototype.getObj = function(key) {
+		return JSON.parse(this.getItem(key))
+	}
+	var app = angular.module('SavedProject', []);
+	 app.controller('SavedProjectController',function($scope, $http){
+		$scope.Data = localStorage.getObj('SavedData')
+		
+		
+	$scope.clicker  = function($index) {
+		$scope.clicked_item = $index;
+	}
+	});
+	
+	$(document).ready(function(){
+		$('.collapsible').collapsible()
+	});
+
+ </script>
+</body>
+</html>

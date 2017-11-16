@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col s12 center">
+		<img class=" materialboxed responsive-img middle" src="img/types/type1.png">
+	</div>
+	<form name="dimentionform">
+	<div class="row margin">
+        <div class="input-field col s12">
+            <i class="large material-icons prefix" style="font-size:40px;margin-left:-3px;">swap_horiz</i>
+            <input id="width" type="number" ng-model="dimentionType1.width" class="validate" required>
+            <label for="width" class="center-align">Width</label>
+        </div>
+        </div>
+        <div class="row margin">
+            <div class="input-field col s12">
+				<i class="large material-icons prefix" style="font-size:40px;">swap_vert</i>
+				<input id="height" type="number" ng-model="dimentionType1.height" class="validate" required>
+				<label for="height">Height</label>
+            </div>
+        </div>
+		<div class="input-field col s12">
+			<a href="#details-type1" class="btn waves-effect waves-light col s12" type="submit" value="submit" ng-click="dimention()" style="background: #26A69A; text-align: center; min-height:50px;line-height:50px;border-radius:2px;margin-bottom:10px;">Get Financial</a>
+		</div>
+		</form>
+    </div>
+<script>
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+	$('.dimention').addClass('active');
+	$('.price').removeClass('active');
+  });
+</script>

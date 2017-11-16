@@ -1,0 +1,207 @@
+
+<div class="row">
+	<div class="col s12">
+		<img id="MainImage" class="responsive-img middle" src="img/types/type1.jpg">
+		<img id="CompareImage" ng-if="compare == true" class="responsive-img middle" ng-src="{{image}}">
+		<br>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<!-- <th data-field="id">Sl. No</th> -->
+				<th data-field="name">Item Name</th>
+				<th data-field="quantity">Qty.</th>
+			</tr>
+	</thead>
+		<tbody>
+			<tr>
+				<!-- <td>1</td> -->
+				<td>Wall to Glass Hinge</td>
+				<td>2</td>
+				
+			</tr>
+			<tr>
+				<!-- <td>2</td> -->
+				<td>Water disperser L=2000mm</td>
+				<td>1</td>
+				
+			</tr>
+			<tr>
+				<!-- <td>3</td> -->
+				<td>Wall Seal L=2500mm</td>
+				<td>1</td>
+				
+			</tr>
+			<tr>
+				<!-- <td>4</td> -->
+				<td>Magnetic Seal -2500mm</td>
+				<td>1</td>
+				
+			</tr>
+			<tr>
+				<!-- <td>5</td> -->
+				<td>Towel rod cum handrail</td>
+				<td>1</td>
+				
+			</tr>
+		</tbody>
+	</table>
+</div>
+<hr style="margin-top:-20px">
+<div class="row">
+	<div class="input-field col s12">
+		<button class="btn waves-effect waves-light col s12 nmargin" id="price" style="background: #26A69A; text-align: center;height:50px;line-height:50px; border-radius:2px;"><span ng-if="compare != true">Total Price</span> &nbsp; {{  fittings_type1 - fittings_type1 * sdiscount/100 + finalglassCost + finalInstallationCost + siliconSealant * 1.0 + marginBiller | currency: '&#8377'}} </button>
+	</div>
+	<div class="input-field col s12">
+		<button ng-if="compare == true" class="btn waves-effect waves-light col s6" id="comparePrice" style="background: #26A69A; text-align: center;height:50px;line-height:48px; border-radius:2px;float:right;margin-top:-13px;margin-bottom:-25px;"> &nbsp; <span ng-if="getalldata">{{ ItemPrice - ItemPrice * sdiscount/100 + finalCglassCost + finalCInstallationCost + siliconSealant * QtySiliconSealant + CmarginBiller | currency: '&#8377'}}</span> </button>
+	</div>
+	<div class="input-field col s12">
+		<a class="btn waves-effect waves-light col s12" id="discount" style="background: #26A69A;height:50px;line-height:50px;margin-top: -8px; text-align: center; border-radius:2px;"> <span ng-if="!removeDisc" ng-click="fDiscount()"> Apply Discount </span> <span ng-if="removeDisc" ng-click="removeDiscount()"> Remove Discount </span></a>
+	</div>
+	<div class="input-field col s4" style="float:left;padding-right:2px;">
+		<a class="btn waves-effect waves-light col s12" id="popup" style="padding-left:1px;background: #26A69A;height:50px;line-height:50px;margin-top: -8px; text-align: center; border-radius:2px;">Save</a>
+	</div>
+	<div class="input-field col s4 Comparestyle" id="compareDiv">
+		<a class="btn waves-effect waves-light col s12" id="compare" ng-click="Compare()" style="padding-right:1px;background: #26A69A;height:50px;line-height:50px;margin-top: -8px; text-align: center; border-radius:2px;"><span ng-if="!compare">Compare</span><span ng-if="compare == true">Back to {{subType}}</span></a>
+	</div>
+	<div class="input-field col s4" style="padding-left:1px;padding-right:1px;">
+		<a class="btn waves-effect waves-light col s12" ng-click="Reload()" id="new" href="#/" style="background: #26A69A;height:50px;line-height:50px;margin-top: -8px; text-align: center; border-radius:2px;">New</a>
+	</div>
+</div>
+  <!-- Modal for save -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <h5 class="center" style="margin-top:-10px;">Save project as</h5>
+      <input style="margin-left:37px;border-radius:8px;height:30px;border:none;color:black;" name="projectname" ng-model="info.projectname" autofocus="autofocus" required>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="type_price()">Save</a>
+    </div>
+  </div>
+  <!-- modal for discount -->
+  <div id="modalDisc" class="modal">
+    <div class="modal-content">
+      <h5 class="center" style="margin-top:-10px;">Give Discount(Only Numbers)</h5>
+      <input placeholder="Upto 20" style="margin-left:37px;border-radius:8px;height:30px;border:1px solid blue;color:black; padding-left:5px;" name="projectname" ng-model="info.orderDisc" autofocus="autofocus" required>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="donefDiscount()">Done</a>
+    </div>
+  </div>
+  <!-- Modal zoom -->
+  <div id="modalImg" class="modal">
+		<div class="ZoomImg middle">
+			<img id="img" class="ZoomImg-img" src="img/types/type1.jpg">
+		</div>
+  </div>
+  <!-- Modal zoom CompareImage -->
+  <div id="modalImgCompare" class="modal">
+		<div class="ZoomImg middle">
+			<img id="img1" class="ZoomImg-img" ng-src="{{image}}">
+		</div>
+  </div>
+  <div id="Cdiv" class="input-field col s12 m6 hidden" style="margin:12px;">
+    <select ng-model="item" ng-change="CType()" id="CType" class="icons">
+      <option value="" disabled selected>Choose GlassType</option>
+	  <option value="clear" data-icon="img/clear.png" class="circle">Clear</option>
+      <option value="parsol" data-icon="img/obscure.png" class="circle">parsol</option>
+	  <option value="diamant" data-icon="img/clear.png" class="circle">diamant</option>
+      <option value="master" data-icon="img/obscure.png" class="circle">master</option>
+      <option value="mirastar" data-icon="img/rain.png" class="circle">mirastar</option>
+	  <option value="timeless" data-icon="img/aquatex.png" class="circle">Timeles</option>
+    </select>
+	
+    <select ng-model="Typeitem" ng-change="CSubType()" id="SubType" class="icons">
+      <option value="" disabled selected>Choose Type</option>
+      <option value="type1" data-icon="img/types/type1.png" class="circle">Type1</option>
+      <option value="type2" data-icon="img/types/type2.png" class="circle">Type2</option>
+      <option value="type3" data-icon="img/types/type3.png" class="circle">Type3</option>
+	  <option value="type4" data-icon="img/types/type4.png" class="circle">Type4</option>
+	  <option value="type5" data-icon="img/types/type5.png" class="circle">Type5</option>
+	  <option value="type6" data-icon="img/types/type6.png" class="circle">Type6</option>
+	  <option value="type7" data-icon="img/types/type7.png" class="circle">Type7</option>
+    </select>	
+		<div id="view" class="hidden">
+        <div class="input-field col s12 m6">
+            <!-- <i class="large material-icons prefix" style="font-size:30px;margin-left:-3px;">swap_horiz</i> -->
+            <input id="width" type="number" ng-keyup="update()" ng-model="CdimentionType.width" class="validate" required>
+            <label class="active" for="width" class="center-align">Width(in meter)</label>
+			<p class="center" ng-if="CdimentionType.width > 2">Oops! Max Width is 2</p>
+        </div>
+		<div class="input-field col s12 m6" id="width1">
+            <!-- <i class="large material-icons prefix" style="font-size:30px;margin-left:-3px;">swap_horiz</i> -->
+            <input id="width" type="number" ng-keyup="update()" ng-model="CdimentionType.width1" class="validate" required>
+            <label class="active" for="width1" class="center-align">Width(in meter)</label>
+			<p class="center" ng-if="CdimentionType.width1 > 2">Oops! Max Width is 2</p>
+        </div>
+		<div class="input-field col s12 m6" id="width2">
+            <!-- <i class="large material-icons prefix" style="font-size:30px;margin-left:-3px;">swap_horiz</i> -->
+            <input id="width" type="number" ng-keyup="update()" ng-model="CdimentionType.width2"  class="validate" required>
+            <label class="active" for="width2" class="center-align">Width(in meter)</label>
+			<p class="center" ng-if="CdimentionType.width2 > 2">Oops! Max Width is 2</p>
+        </div>
+        <div class="input-field col s12 m6">
+			<!-- <i class="large material-icons prefix" style="font-size:30px;">swap_vert</i> -->
+			<input id="height" name="height" ng-keyup="update()" type="number" ng-model="CdimentionType.height" class="validate" required>
+			<label class="active" for="height">Height(in meter)</label>
+			<p class="center" ng-if="CdimentionType.height > 2.5">Oops! Max Height is 2.5</p>
+		</div>
+		</div>
+</div>
+
+<script>
+  $(document).ready(function(){
+	 $('select').material_select();
+    $('.materialboxed').materialbox();
+	$('.price').addClass('active');
+	$('#popup').click(function(){
+		$('#modal2').openModal();
+	});
+	 $('select').material_select();
+	$('#compare').click(function(){
+		$('#Cdiv').toggleClass("hidden");
+		$('table').toggleClass("hidden");
+		$('#popup').toggleClass("hidden");
+		$('#discount').toggleClass("hidden");
+		$('#price').toggleClass("pmargin");
+		$('#price').toggleClass("nmargin");
+		$('#price').toggleClass("s12");
+		$('#MainImage').toggleClass("cwidth");
+		$('#CompareImage').toggleClass("cwidth");
+		$('#new').toggleClass('hidden');
+		$('#compareDiv').toggleClass('s12 s4');
+		$('#compareDiv').toggleClass('Comparestyle');
+		$('.compare').toggleClass('active');
+		$('#compare').addClass('hidden');
+		$('#MainImage').addClass('hidden');
+		$('#CompareImage').addClass('hidden');
+		$('#price').addClass('hidden');
+		$('#comparePrice').addClass('hidden');
+		$('hr').addClass('hidden');
+		
+		$('#CompareImage').click(function(){
+			$('#modalImgCompare').openModal();
+		});
+	
+	});
+	$('#MainImage').click(function() {
+		$('#modalImg').openModal();
+	});
+	
+	
+	var touchtime = 0;
+	$('.modal').on('click', function() {
+    if(touchtime == 0) {
+        touchtime = new Date().getTime();
+    } else {
+        if(((new Date().getTime())-touchtime) < 800) {
+           $('#img1').toggleClass('ZoomImg-img ZoomImg-zoom'); 
+		   $('#img').toggleClass('ZoomImg-img ZoomImg-zoom'); 
+            touchtime = 0;
+        } else {
+            touchtime = 0;
+        }
+    } 
+	});
+	});
+</script>

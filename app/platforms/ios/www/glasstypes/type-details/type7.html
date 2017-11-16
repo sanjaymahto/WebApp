@@ -1,0 +1,82 @@
+<div class="row">
+	<div class="col s12">
+		<img class="materialboxed responsive-img middle" src="img/types/type_7.PNG">
+		<br>
+	</div>
+	<table class="centered">
+		<thead>
+			<tr>
+				<th data-field="id">Sl. No</th>
+				<th data-field="name">Item Name</th>
+				<th data-field="quantity">Qty.</th>
+				
+			</tr>
+	</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Wall to Glass Hinge 135</td>
+				<td>2</td>
+				
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Wall to Glass Bracket</td>
+				<td>4</td>
+				
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Floor to Glass Bracket</td>
+				<td>2</td>
+				
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>Water Disperser L=2000mm</td>
+				<td>1</td>
+				
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>Middle Seal 1-2500 Long.</td>
+				<td>1</td>
+				
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>Magnetic Seal -2500mm</td>
+				<td>1</td>
+				
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>Towel Rod Cum Handrail</td>
+				<td>1</td>
+				
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>Pentagonal Support Bar</td>
+				<td>1</td>
+				
+			</tr>
+		</tbody>
+	</table>
+</div>
+<hr style="margin-top:-20px">
+<div class="row">
+	<div class="input-field col s12">
+		<a class="btn waves-effect waves-light col s12" style="background: #26A69A; text-align: center;margin-top:5px;height:50px;line-height:50px; border-radius:2px;">Total Price &nbsp; {{ type7 - type7*discount/100 | currency: '&#8377;' }}</a>
+	</div>
+	<div class="input-field col s12">
+		<a class="btn waves-effect waves-light col s12" ng-click="type_7()" style="background: #26A69A; text-align: center;height:50px;line-height:50px;margin-top: -8px; border-radius:2px;">Save this Project</a>
+	</div>
+	<br>
+    </div>
+<script>
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+	$('.price').addClass('active');
+	});
+</script>

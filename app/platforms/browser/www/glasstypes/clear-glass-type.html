@@ -1,0 +1,33 @@
+<div class="row">
+	<a href="#raw_types_swing">
+    <div class="col s6" style="padding:5px;" ng-click="type_swing()">
+      <div class="card" style="border-radius:5px;">
+        <div class="card-image">
+          <img class="responsive-img" src="img/swing-type.png">
+        </div>
+        <div class="card-content" style="padding:12px;">
+		  <p class="center">Swing types</p>
+        </div>
+      </div>
+    </div>
+	</a>
+	<a href="#raw_types_sliding">	
+	<div class="col s6" style="padding:5px;" ng-click="type_sliding()">
+      <div class="card" style="border-radius:5px;">
+        <div class="card-image">
+          <img class="responsive-img" src="img/swing-type.png">
+        </div>
+        <div class="card-content" style="padding:12px;">
+          <p class="center">Sliding types</p>
+        </div>
+      </div>
+    </div>
+	</a>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+	$('.cubical').addClass('active');
+	$('.model').removeClass('active');
+  });
+</script>

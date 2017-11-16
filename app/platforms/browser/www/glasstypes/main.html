@@ -1,0 +1,40 @@
+		<div class="row">
+			<div class="col s6">
+				<a href="#type" ng-click="type_clear()"><img class="responsive-img" src="img/clear.png"></a>
+				<p class="center">Clear</p>
+			</div>
+			<div class="col s6">
+				<a href="#type" ng-click="type_parsol()"><img class="responsive-img " src="img/obscure.png"></a>
+				<p class="center">Parsol</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s6">
+				<a href="#type" ng-click="type_diamant()"><img class="responsive-img" src="img/clear.png"></a>
+				<p class="center">Diamant</p>
+			</div>
+			<div class="col s6">
+				<a href="#type" ng-click="type_master()"><img class="responsive-img " src="img/obscure.png"></a>
+				<p class="center">Master</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s6">
+				<a href="#type" ng-click="type_mirastar()"><img class="responsive-img" src="img/rain.png"></a>
+				<p class="center">Mirastar</p>
+			</div>
+			<div class="col s6" onclick="Materialize.toast('10% Timeless off Applied', 1000, 'rounded')">
+				<a href="#type" ng-click="type_timeless()"><img class="responsive-img" src="img/aquatex.png"></a>
+				<!-- <div style="position:relative;display:block; margin: 0 auto;width:82px;"> -->
+				<!-- <div id="burst-12" style="position:relative;float:left;"><p style="position:relative;z-index:100;color:white;font-size:9px;line-height:20px;">10%</p></div> -->
+				<!-- <p style="margin-left:25px;">Timeless</p> -->
+				<p class="center">Timeless</p>
+				</div>
+			</div>
+		</div>
+<script>
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+	$('.cubical').removeClass('active');
+});
+</script>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- materialize css -->
+		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+		<!-- materialize icon -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link type="text/css" rel="stylesheet" href="css/bar.css">
+		<style>
+			nav {
+				background: #FFFFFF;
+			}
+			.mdi-navigation-menu {
+				padding-left: 7px;
+				padding-right: 7px;
+				color: #26A69A;
+				font-size: 40px;
+			}
+			.responsive-img {
+				border-radius: 10px;
+			}
+			.row a{
+				padding: 0;
+				margin: 0;
+			}
+			#slide-out a.btn{
+				border-radius: 0px;
+				background: #FFFFFF;
+				text-align: left;
+				box-shadow: none;
+				max-height:45px;
+			}
+			.img_circle{
+				background-image: url("img/backg.jpg");
+				width:100%;
+				height:215px;
+			}
+			.img_circle img {
+				display:block;
+				border-radius: 50%;
+				width: 80px;
+				height: 80px;
+				margin:0 auto;
+			}
+			.large.material-icons {
+			 font-size: 25px;
+			 float:left;
+			 margin-right:10px;
+			 color: #26A69A;
+			}
+			#slide-out a{
+				line-height:45px;
+			}
+			.middle{
+				display:block;
+				margin: 0 auto;
+			}
+			hr{
+				border: 0;
+				height: 1px;
+				background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+			}
+			.backG {
+				background: url(icons/glass.png) no-repeat;
+				background-position: 50% 7%;
+			}
+			.backC {
+				background: url(icons/cubicle.png) no-repeat;
+				background-position: 50% 7%;
+			}
+			.backM {
+				background: url(icons/model.png) no-repeat;
+				background-position: 50% 7%;
+			}
+			.backD {
+				background: url(icons/dimension.png) no-repeat;
+				background-position: 50% 7%;
+			}
+			.backP {
+				background: url(icons/rupee.png) no-repeat;
+				background-position: 50% 7%;
+			}
+		</style>
+	</head>
+	<body class="white" ng-app="saintgobainapp" ng-controller="calc">
+		<nav>
+			<div id="slide-out" class="side-nav">
+				<div class="img_circle">
+					<br>
+					<img src="icons/user.png">
+				</div>
+				<a class="waves-effect waves-light btn" style="margin-top:-65px;text-transform: lowercase; background: rgba(0, 0, 0,0.1);text-align:center;color:white;" href="#">{{userName}}</a>
+				<a class="waves-effect waves-light btn" href="login.html"><i class="large material-icons">power_settings_new</i>Sign Out</a>
+				<a class="waves-effect waves-light btn" href="#"><i class="large material-icons">subtitles</i>About Us</a>
+				<a class="waves-effect waves-light btn" href="#"><i class="large material-icons">live_help</i>Help</a>
+			</div>
+			<a data-activates="slide-out" class="button"><i class="mdi-navigation-menu"></i></a>
+		</nav>
+		<br>
+		<div id="bar">
+			<ul id="progressbar">
+				<li class="active backG">Glass Type</li>
+				<li class="cubical backC">Cubicle</li>
+				<li class="model backM">Model</li>
+				<li class="dimention backD">Dimention</li>
+				<li class="price backP">Price</li>
+			</ul>
+		</div>
+		<div ng-view></div>
+		
+	<!-- Jquery plugin -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- materialize plugin -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+	<!-- angularjs plugin -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+	<script>
+	$(document).ready(function(){
+	$('.button').sideNav({
+		menuWidth:300,
+		edge: 'left',
+		closeOnClick: true, 
+		draggable: true,
+	});
+	$('.collapsible').collapsible();
+	});
+	</script>
+	<script>
+		var app = angular.module("saintgobainapp", ["ngRoute"]);
+		app.config(function($routeProvider){
+			$routeProvider
+			.when("/",{
+				templateUrl: "glasstypes/main.html"
+			})
+			.when("/clear", {
+				templateUrl : "glasstypes/clear-glass-type.html"
+			})
+			.when("/obscure", {
+				templateUrl : "glasstypes/clear-glass-type.html"
+			})
+			.when("/rain", {
+				templateUrl : "glasstypes/clear-glass-type.html"
+			})
+			.when("/aquatex", {
+				templateUrl : "glasstypes/clear-glass-type.html"
+			})	
+			.when("/raw_types_swing", {
+				templateUrl : "glasstypes/raw_types_swing.html"
+			})
+			.when("/raw_types_sliding", {
+				templateUrl : "glasstypes/raw_types_sliding.html"
+			})
+			.when("/type1", {
+				templateUrl : "glasstypes/dimention/dimention-type1.html"	
+			})
+			.when("/type2", {
+				templateUrl : "glasstypes/dimention/dimention-type2.html"	
+			})
+			.when("/type3", {
+				templateUrl : "glasstypes/dimention/dimention-type3.html"	
+			})
+			.when("/type4", {
+				templateUrl : "glasstypes/dimention/dimention-type4.html"	
+			})
+			.when("/type5", {
+				templateUrl : "glasstypes/dimention/dimention-type5.html"	
+			})
+			.when("/type6", {
+				templateUrl : "glasstypes/dimention/dimention-type6.html"	
+			})
+			.when("/type7", {
+				templateUrl : "glasstypes/dimention/dimention-type7.html"	
+			})
+			.when("/details-type1", {
+				templateUrl : "glasstypes/type-details/type1.html"
+			})
+			.when("/details-type2", {
+				templateUrl : "glasstypes/type-details/type2.html"
+			})
+			.when("/details-type3", {
+				templateUrl : "glasstypes/type-details/type3.html"
+			})
+			.when("/details-type4", {
+				templateUrl : "glasstypes/type-details/type4.html"
+			})
+			.when("/details-type5", {
+				templateUrl : "glasstypes/type-details/type5.html"
+			})
+			.when("/details-type6", {
+				templateUrl : "glasstypes/type-details/type6.html"
+			})
+			.when("/details-type7", {
+				templateUrl : "glasstypes/type-details/type7.html"
+			});
+		});
+		app.controller('calc',function($scope,$http){
+		var pricesJSON = localStorage.getItem('data');
+		var pricesObj = JSON.parse(pricesJSON);
+		$scope.userName = localStorage.getItem('username');
+		$scope.type1 = pricesObj.Wall_to_Glass_Hinge * 2 + pricesObj.Towel_rod_cum_handrail + pricesObj.Water_disperser_2000 + pricesObj.Magnetic_seal_2500mm + pricesObj.Glass_Timeles *1.5 - (pricesObj.Glass_Timeles * 1.5)* 0.10 + pricesObj.Installation_Cost * 1.5 + pricesObj.Silicon_Sealant * 1.0 ;
+		$scope.type2 = pricesObj.Wall_to_Glass_Hinge * 2 + pricesObj.Wall_to_Glass_Bracket * 2 + pricesObj.Floor_to_Glass_Bracket + pricesObj.Water_disperser_2000 + pricesObj.Magnetic_seal_2500mm + pricesObj.Towel_rod_cum_handrail + pricesObj.Wall_Seal_2500_mm + pricesObj.Support_Bar_2100 + pricesObj.Rod_to_Glass_Clamp + pricesObj.Wall_to_Rod_Connector + pricesObj.Wall_to_Rod_Connector * 2 + pricesObj.Glass_Timeles * 3.0 -(pricesObj.Glass_Timeles * 3.0) * 0.10 + pricesObj.Installation_Cost * 3.0 + pricesObj.Silicon_Sealant * 1.0;
+		$scope.type3 = pricesObj.Wall_to_Glass_Hinge * 4 + pricesObj.Glass_to_Glass_Hinge_180 * 2 + pricesObj.Floor_to_Glass_Bracket * 2 + pricesObj.Water_disperser_2000 + pricesObj.Middle_Seal_2500_long + pricesObj.Towel_rod_cum_handrail + pricesObj.Support_Bar_2100 + pricesObj.Wall_to_Rod_Connector * 2 + pricesObj.Rod_to_Glass_Clamp * 2 + pricesObj.Glass_Timeles * 4.0 - (pricesObj.Glass_Timeles * 4.0)*0.10 + pricesObj.Installation_Cost * 4.0 + pricesObj.Silicon_Sealant * 2.0;
+		$scope.type4 = pricesObj.Wall_to_Glass_Hinge * 2 + pricesObj.Wall_to_Glass_Bracket * 2 + pricesObj.Floor_to_Glass_Bracket + pricesObj.Water_disperser_2000 + pricesObj.Wall_Seal_2500_mm + pricesObj.Magnetic_seal_2500mm + pricesObj.Towel_rod_cum_handrail + pricesObj.Support_Bar_2100 + pricesObj.Rod_to_Glass_Clamp + pricesObj.Wall_to_Rod_Connector * 2 + pricesObj.Adjustible_connector + pricesObj.Glass_Timeles * 3.0 - (pricesObj.Glass_Timeles * 3.0)*0.10 + pricesObj.Installation_Cost * 3.0 + pricesObj.Silicon_Sealant;
+		$scope.type5 = pricesObj.Wall_to_Glass_Hinge * 2 + pricesObj.Wall_to_Glass_Bracket * 2 + pricesObj.Glass_to_Glass_Hinge_180 * 2 + pricesObj.Floor_to_Glass_Bracket * 2 + pricesObj.Water_disperser_2000 + pricesObj.Wall_Seal_2500_mm + pricesObj.Magnetic_seal_2500mm + pricesObj.Middle_Seal_2500_long + pricesObj.Towel_rod_cum_handrail + pricesObj.Support_Bar_2100 + pricesObj.Rod_to_Glass_Clamp * 2 + pricesObj.Wall_to_Rod_Connector * 2 +  pricesObj.Glass_Timeles * 4.4 - (pricesObj.Glass_Timeles * 4.4)*0.10 + pricesObj.Installation_Cost * 4.4 + pricesObj.Silicon_Sealant * 2.0;
+		$scope.type6 = pricesObj.Glass_to_Glass_Hinge_90 * 2 + pricesObj.Wall_to_Glass_Bracket * 4 + pricesObj.Floor_to_Glass_Bracket * 2 + pricesObj.Water_disperser_2000 + pricesObj.Wall_Seal_2500_mm + pricesObj.Magnetic_seal_2500mm + pricesObj.Middle_Seal_2500_long + pricesObj.Towel_rod_cum_handrail + pricesObj.Support_Bar_2100 + pricesObj.Rod_to_Glass_Clamp * 2 + pricesObj.Wall_to_Rod_Connector * 2 + pricesObj.Adjustible_connector + pricesObj.Glass_Timeles * 4.4 - (pricesObj.Glass_Timeles * 4.4)*0.10 + pricesObj.Installation_Cost * 4.4 + pricesObj.Silicon_Sealant * 2.0;
+		$scope.type7 = pricesObj.Glass_to_Glass_Hinge_135 * 2 + pricesObj.Wall_to_Glass_Bracket * 4 + pricesObj.Floor_to_Glass_Bracket * 2 + pricesObj.Water_disperser_2000 + pricesObj.Middle_Seal_2500_long + pricesObj.Magnetic_seal_2500mm + pricesObj.Towel_rod_cum_handrail + pricesObj.Pentagonal_support_bar + pricesObj.Glass_Timeles * 3.9 - (pricesObj.Glass_Timeles * 3.9)*0.10 + pricesObj.Installation_Cost * 3.9 + pricesObj.Silicon_Sealant * 2.0; 
+		$scope.discount = pricesObj.admin_discount;
+	
+		$scope.type_clear = function() {
+			$scope.glassType = 'clear';
+		}
+		$scope.type_obscure = function() {
+			$scope.glassType = 'obscure';
+		}
+		$scope.type_rain = function() {
+			$scope.glassType = 'rain';
+		}
+		$scope.type_aquatex = function() {
+			$scope.glassType = 'aquatex';
+		}
+		$scope.dimentionType1 = {};
+		$scope.dimention = function() { 
+			$scope.Width = $scope.dimentionType1.width;
+			$scope.Height = $scope.dimentionType1.height;
+		}
+		$scope.type_1 = function () {
+			var type1_details = {'glasstype':$scope.glassType,'glassnature': 'jghghjghj','glasssubclass':'type1', 'width':$scope.Width,'height':$scope.Height,'username': $scope.userName,'projectName':'type75Project'};
+			console.log(type1_details);
+			
+			$http({
+				url : 'http://ec2-34-205-38-121.compute-1.amazonaws.com:3000/savedata',
+				method : 'post',
+				data : type1_details
+		}).then(function(httpResponse){console.log(httpResponse)})
+		}
+		});
+
+	</script>
+	</body>
+</html>

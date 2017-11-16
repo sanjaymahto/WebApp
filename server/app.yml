@@ -1,0 +1,19 @@
+language: node_js
+
+services:
+  - mongodb
+  
+# Test against this version of Node.js
+environment:
+  nodejs_version: "6.10"
+
+# Install scripts. (runs after repo cloning)
+install:
+  # install modules
+  - npm install
+
+# Post-install test scripts.
+test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version

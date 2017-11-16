@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>  
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- materialize css -->
+		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+		<!-- materialize icon -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link type="text/css" rel="stylesheet" href="css/bar.css">
+		<style>
+			nav {
+				background: #FFFFFF;
+			}
+			.mdi-navigation-menu {
+				padding-left: 7px;
+				padding-right: 7px;
+				color: #26A69A;
+				font-size: 40px;
+			}
+			.responsive-img {
+				border-radius: 10px;
+			}
+			.row a{
+				padding: 0;
+				margin: 0;
+			}
+			#slide-out a.btn{
+				border-radius: 0px;
+				background: #FFFFFF;
+				text-align: left;
+				box-shadow: none;
+				max-height:45px;
+			}
+			.img_circle{
+				background-image: url("img/backg.jpg");
+				width:100%;
+				height:215px;
+			}
+			.img_circle img {
+				display:block;
+				border-radius: 50%;
+				width: 80px;
+				height: 80px;
+				margin:0 auto;
+			}
+			.large.material-icons {
+			 font-size: 25px;
+			 float:left;
+			 margin-right:10px;
+			 color: #26A69A;
+			}
+			#slide-out a{
+				line-height:45px;
+			}
+			.middle{
+				display:block;
+				margin: 0 auto;
+			}
+			hr{
+				border: 0;
+				height: 1px;
+				background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+			}
+			.backG {
+				background: url(icons/glass.png) no-repeat;
+				background-position: 50% 7%;
+			}
+			.backC {
+				background: url(icons/cubicle.png) no-repeat;
+				background-position: 50% 7%;
+			}
+			.backM {
+				background: url(icons/model.png) no-repeat;
+				background-position: 50% 7%;
+			}
+			.backD {
+				background: url(icons/dimension.png) no-repeat;
+				background-position: 50% 7%;
+			}
+			.backP {
+				background: url(icons/rupee.png) no-repeat;
+				background-position: 50% 7%;
+			}
+			.backCM {
+				background: url(icons/compare.png) no-repeat;
+				background-position: 50% 7%;
+			}
+			<!-- discount 10% css -->
+			<!-- #burst-12 { -->
+			<!-- background: red; -->
+			<!-- width: 40px; -->
+			<!-- height: 40px; -->
+			<!-- position: relative; -->
+			<!-- text-align: center; -->
+			<!-- } -->
+			<!-- #burst-12:before, #burst-12:after { -->
+				<!-- content: ""; -->
+				<!-- position: absolute; -->
+				<!-- top: 0; -->
+				<!-- left: 0; -->
+				<!-- height: 20px; -->
+				<!-- width: 20px; -->
+				<!-- background: red; -->
+			<!-- } -->
+			<!-- #burst-12:before { -->
+				<!-- -webkit-transform: rotate(45deg); -->
+				<!-- -moz-transform: rotate(15deg); -->
+				<!-- -ms-transform: rotate(15deg); -->
+				<!-- -o-transform: rotate(15deg); -->
+			<!-- } -->
+			<!-- #burst-12:after { -->
+				<!-- -webkit-transform: rotate(90deg); -->
+				<!-- -moz-transform: rotate(60deg); -->
+				<!-- -ms-transform: rotate(60deg); -->
+				<!-- -o-transform: rotate(60deg); -->
+			<!-- } -->
+			.hidden{
+				display:none;
+			}
+			.pmargin{
+				margin-bottom:-50px;
+				width:48%;
+				float:left;
+			}
+			.nmargin{
+				margin-bottom:-14px;
+			}
+			.cwidth{
+				width:50%;
+				float:left;
+				margin-bottom:12px;
+			}
+			#modal1{
+				top:50% !important;
+				margin-top:-120px !important;
+				background:rgba(0,0,0,0.8) !important;
+				color:white;
+				border-radius:10px;
+			}
+			#modal2{
+				top:50% !important;
+				margin-top:-120px !important;
+				background:rgba(0,0,0,0.8) !important;
+				color:white;
+				border-radius:10px;
+			}
+			#modalImg{
+				width:95% !important;
+				top:0 !important;
+				bottom: 0 !important;
+				border-radius:15px;
+				
+			}
+			#modalImgCompare{
+				width:95% !important;
+				top:0 !important;
+				bottom: 0 !important;
+				border-radius:15px;
+				
+			}
+			::-webkit-scrollbar {
+				width: 0px;  /* remove scrollbar space */
+				height:0px;
+				background: rgba(0,0,0,0);
+			}
+			.ZoomImg-img{
+				width:100%;
+				position:absolute;
+				top:0;
+				bottom:0;
+				margin:auto;
+				overflow-x:initial;
+				
+			}
+			.ZoomImg-zoom{
+				zoom: 200%;
+				 
+			}
+			input:focus {
+				outline:none;
+			}
+			.Comparestyle{
+				float:right !important;
+				padding-left:2px !important;
+			}
+			
+		</style>
+	</head>
+	<body class="white" id="appcontroller" ng-app="saintgobainapp" ng-controller="calc">
+		<nav>
+			<div id="slide-out" class="side-nav">
+				<div class="img_circle">
+					<br>
+					<img src="icons/user.png">
+				</div>
+				<a class="waves-effect waves-light btn" style="margin-top:-65px;text-transform: lowercase; background: rgba(0, 0, 0,0.1);text-align:center;color:white;" >{{ Email }}</a>
+				<a class="waves-effect waves-light btn" ng-click="Reload()" href="#/"><i class="large material-icons">home</i>Home</a>
+				<a class="waves-effect waves-light btn" href="saved-project.html"><i class="large material-icons">store</i>Saved Project</a>
+				<a class="waves-effect waves-light btn" href="#"><i class="large material-icons">subtitles</i>About Us</a>
+				<a class="waves-effect waves-light btn" href="#"><i class="large material-icons">live_help</i>Help</a>
+				<a class="waves-effect waves-light btn" ng-click="SignOut()"><i class="large material-icons">power_settings_new</i>Sign Out</a>
+
+			</div>
+			<a data-activates="slide-out" class="button"><i class="mdi-navigation-menu"></i></a>
+			  
+			<div id="modal1" class="modal">
+				<p class="center">
+					Select Project Type
+				</p>
+				<hr>
+				<p style="margin-left:20%" ng-click="MDiscount()">
+					<input class="with-gap" name="group3" type="radio" id="test5">
+					<label for="test5">Regular</label>
+				</p>
+				<p ng-click="LDiscount()" style="margin-left:20%;margin-top:-10px;">
+					<input class="with-gap" name="group3" type="radio" id="test6">
+					<label for="test6">Special</label>
+				</p>
+				<input type="number" placeholder="Discount rate upto 13" data-ng-if="show == true" ng-model="Sdiscount.Value" style="margin-left:20%;border:none;border-radius:5px;width:50%;background:white;height:35px;color:black;padding-left:10px;">
+				<input type="password" placeholder="Give Password" ng-change="checkPass()" data-ng-if="show == true" ng-model="Sdiscount.Pass" style="margin-left:20%;border:none;border-radius:5px;width:50%;background:white;height:35px;color:black;padding-left:10px;margin-bottom:20px;">
+			
+			</div>
+		</nav>
+		<br>
+		<div id="bar">
+			<ul id="progressbar">
+				<li class="active backG">Glass Type</li>
+				<li class="cubical backC">Cubicle</li>
+				<li class="model backM">Model</li>
+				<li class="dimention backD">Dimension</li>
+				<li class="price backP">Price</li>
+				<li class="compare backCM">Compare</li>
+			</ul>
+		</div>
+		
+		<div ng-view></div>
+				
+	<!-- Jquery plugin -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- materialize plugin -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+	<!-- angularjs plugin -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+	<script>
+	$(document).ready(function(){
+	$('.button').sideNav({
+		menuWidth:300,
+		edge: 'left',
+		closeOnClick: true,
+		draggable: true,
+	});
+	$('.collapsible').collapsible();
+	$('.modal').openModal();
+	$('select').material_select();
+	});
+	</script>
+	<script>
+	Storage.prototype.setObj = function(key, obj) {
+		return this.setItem(key, JSON.stringify(obj))
+	}
+	Storage.prototype.getObj = function(key) {
+		return JSON.parse(this.getItem(key))
+	}
+	
+		var app = angular.module("saintgobainapp", ["ngRoute"] );
+		app.config(function($routeProvider){
+			$routeProvider
+			.when("/",{
+				templateUrl: "glasstypes/main.html"
+			})
+			.when("/type", {
+				templateUrl : "glasstypes/clear-glass-type.html"
+			})
+			.when("/raw_types_swing", {
+				templateUrl : "glasstypes/raw_types_swing.html"
+			})
+			.when("/raw_types_sliding", {
+				templateUrl : "glasstypes/raw_types_sliding.html"
+			})
+			.when("/sliding_types", {
+				templateUrl : "glasstypes/dimention/dimention-sliding_type.html"
+			})
+			.when("/type1", {
+				templateUrl : "glasstypes/dimention/dimention-type1.html"
+			})
+			.when("/type2", {
+				templateUrl : "glasstypes/dimention/dimention-type2.html"
+			})
+			.when("/type3", {
+				templateUrl : "glasstypes/dimention/dimention-type3.html"
+			})
+			.when("/type4", {
+				templateUrl : "glasstypes/dimention/dimention-type4.html"
+			})
+			.when("/type5", {
+				templateUrl : "glasstypes/dimention/dimention-type5.html"
+			})
+			.when("/type6", {
+				templateUrl : "glasstypes/dimention/dimention-type6.html"
+			})
+			.when("/type7", {
+				templateUrl : "glasstypes/dimention/dimention-type7.html"
+			})
+			.when("/details-sliding_type", {
+				templateUrl : "glasstypes/type-details/sliding_type.html"
+			})
+			.when("/details-type1", {
+				templateUrl : "glasstypes/type-details/type1.html"
+			})
+			.when("/details-type2", {
+				templateUrl : "glasstypes/type-details/type2.html"
+			})
+			.when("/details-type3", {
+				templateUrl : "glasstypes/type-details/type3.html"
+			})
+			.when("/details-type4", {
+				templateUrl : "glasstypes/type-details/type4.html"
+			})
+			.when("/details-type5", {
+				templateUrl : "glasstypes/type-details/type5.html"
+			})
+			.when("/details-type6", {
+				templateUrl : "glasstypes/type-details/type6.html"
+			})
+			.when("/details-type7", {
+				templateUrl : "glasstypes/type-details/type7.html"
+			});
+		});
+		app.controller('calc',function($scope,$http,$window){
+		var pricesJSON = localStorage.getItem('data');
+		var pricesObj = JSON.parse(pricesJSON);
+		$scope.Email = localStorage.getItem('email');
+		$scope.fittings_type1 = pricesObj.Wall_to_Glass_Hinge * 2 + pricesObj.Towel_rod_cum_handrail + pricesObj.Water_disperser_2000 + pricesObj.Wall_Seal_2500_mm + pricesObj.Magnetic_seal_2500mm ;
+		$scope.fittings_type2 = pricesObj.Wall_to_Glass_Hinge * 2 + pricesObj.Wall_to_Glass_Bracket * 2 + pricesObj.Floor_to_Glass_Bracket + pricesObj.Water_disperser_2000 + pricesObj.Magnetic_seal_2500mm + pricesObj.Towel_rod_cum_handrail + pricesObj.Wall_Seal_2500_mm + pricesObj.Support_Bar_2100 + pricesObj.Rod_to_Glass_Clamp + pricesObj.Wall_to_Rod_Connector * 2;
+		$scope.fittings_type3 = pricesObj.Wall_to_Glass_Hinge * 4 + pricesObj.Glass_to_Glass_Hinge_180 * 2 + pricesObj.Floor_to_Glass_Bracket * 2 + pricesObj.Water_disperser_2000 + pricesObj.Middle_Seal_2500_long + pricesObj.Towel_rod_cum_handrail +pricesObj.Magnetic_seal_2500mm + pricesObj.Support_Bar_2100 + pricesObj.Wall_to_Rod_Connector * 2 + pricesObj.Rod_to_Glass_Clamp * 2;
+		$scope.fittings_type4 = pricesObj.Wall_to_Glass_Hinge * 2 + pricesObj.Wall_to_Glass_Bracket * 2 + pricesObj.Floor_to_Glass_Bracket + pricesObj.Water_disperser_2000 + pricesObj.Wall_Seal_2500_mm + pricesObj.Magnetic_seal_2500mm + pricesObj.Towel_rod_cum_handrail + pricesObj.Support_Bar_2100 + pricesObj.Rod_to_Glass_Clamp + pricesObj.Wall_to_Rod_Connector * 2 + pricesObj.Adjustible_connector;
+		$scope.fittings_type5 = pricesObj.Wall_to_Glass_Hinge * 2 + pricesObj.Wall_to_Glass_Bracket * 2 + pricesObj.Glass_to_Glass_Bracket_90 * 2 + pricesObj.Floor_to_Glass_Bracket * 2 + pricesObj.Water_disperser_2000 + pricesObj.Wall_Seal_2500_mm + pricesObj.Magnetic_seal_2500mm + pricesObj.Middle_Seal_2500_long + pricesObj.Towel_rod_cum_handrail + pricesObj.Support_Bar_2100 + pricesObj.Rod_to_Glass_Clamp * 2 + pricesObj.Wall_to_Rod_Connector * 2 + pricesObj.Adjustible_connector;
+		$scope.fittings_type6 = pricesObj.Glass_to_Glass_Hinge_90 * 2 + pricesObj.Wall_to_Glass_Bracket * 4 + pricesObj.Floor_to_Glass_Bracket * 2 + pricesObj.Water_disperser_2000 + pricesObj.Wall_Seal_2500_mm + pricesObj.Magnetic_seal_2500mm + pricesObj.Middle_Seal_2500_long + pricesObj.Towel_rod_cum_handrail + pricesObj.Support_Bar_2100 + pricesObj.Rod_to_Glass_Clamp * 2 + pricesObj.Wall_to_Rod_Connector * 2 + pricesObj.Adjustible_connector ;
+		$scope.fittings_type7 = pricesObj.Glass_to_Glass_Hinge_135 * 2 + pricesObj.Wall_to_Glass_Bracket * 4 + pricesObj.Floor_to_Glass_Bracket * 2 + pricesObj.Water_disperser_2000 + pricesObj.Middle_Seal_2500_long + pricesObj.Magnetic_seal_2500mm + pricesObj.Towel_rod_cum_handrail + pricesObj.Pentagonal_support_bar;
+		$scope.installationCost = pricesObj.Installation_Cost;
+		$scope.siliconSealant = pricesObj.Silicon_Sealant;
+		<!-- $scope.discount = pricesObj.admin_discount; -->
+		
+		<!-- sliding types -->
+		$scope.fittings_sliding_type = pricesObj.Sliding_Door * 1 + pricesObj.Door_knob * 1 + pricesObj.Soft_nose_seal_2500 * 2 ;
+		console.log($scope.fittings_sliding_type);
+		$scope.SignOut = function() {
+			localStorage.removeItem('email');
+			window.location.href = 'index.html';
+			
+		}
+		$scope.Reload = function() {
+			$('.modal').openModal();
+			$('.price').removeClass('active');
+			$('.dimention').removeClass('active');
+			$('.model').removeClass('active');
+			$('.cubical').removeClass('active');
+			$('.compare').removeClass('active');
+			$scope.discount = 0;
+			$scope.sdiscount = 0;
+			$scope.discTimeless = false;
+			$('input[type="radio"]').prop('checked' , false);
+			$scope.show = false;
+			$scope.Sdiscount = {};
+		}
+		$scope.type_clear = function() {
+			$scope.glassType = 'clear';
+			$scope.price = 757;
+		}
+		$scope.type_parsol = function() {
+			$scope.glassType = 'parsol';
+			$scope.price = 779;
+		}
+		$scope.type_diamant = function() {
+			$scope.glassType = 'diamant';
+			$scope.price = 954;
+		}
+		$scope.type_master = function() {
+			$scope.glassType = 'master';
+			$scope.price = 1190;
+		}
+		$scope.type_mirastar = function() {
+			$scope.glassType = 'mirastar';
+			$scope.price = 1143;
+		}
+		
+		$scope.type_timeless = function() {
+			$scope.glassType = 'timeless';
+			$scope.price = pricesObj.Glass_Timeles; 
+			$scope.discTimeless = true;
+		} 
+		<!-- discount should be 0 or 10% -->
+		$scope.discount = 0;
+		$scope.MDiscount = function() {
+			$scope.sdiscount = 0;
+			$scope.show = false;
+			$('.modal').closeModal();
+			
+		}
+		$scope.Sdiscount = {};
+		$scope.show = false;
+		$scope.LDiscount = function() {
+			$scope.show = true;
+			$scope.sdiscount = 0;
+			<!-- $('.modal').closeModal(); -->
+			<!-- $scope.sdiscount = 10; -->
+		}
+		$scope.testPass = 654321;
+		$scope.checkPass = function() {
+			if($scope.Sdiscount.Pass == $scope.testPass){
+				$scope.sdiscount = $scope.Sdiscount.Value ;
+				$('.modal').closeModal();
+				var $SpecialDisc = $scope.sdiscount;
+				Materialize.toast( $SpecialDisc + '% Special Discount Applied', 2000, 'rounded')
+			}
+		}
+		$scope.fDiscount = function() {
+			$('#modalDisc').openModal();
+		}
+		$scope.donefDiscount = function() {
+			console.log($scope.sdiscount);
+			$scope.sdiscount = $scope.sdiscount * 1 + $scope.info.orderDisc * 1;
+			console.log($scope.sdiscount);
+			if($scope.info.orderDisc > 0){
+				$scope.removeDisc = true;
+			}
+		}
+		$scope.removeDiscount = function() {
+			$scope.sdiscount = $scope.sdiscount - $scope.info.orderDisc;
+			$scope.removeDisc = false;
+			$scope.info.orderDisc = '';
+		}
+		$scope.dimentionType = {};
+		$scope.dimention = function() {
+			if($scope.dimentionType.info === 'sliding_type'){
+				 $scope.dimentionType.width1 = 0;
+				 $scope.dimentionType.width2 = 0;
+				 $scope.subType = 'sliding_type'
+			}
+			
+			if($scope.dimentionType.info === 'type1'){
+				 $scope.dimentionType.width1 = 0;
+				 $scope.dimentionType.width2 = 0;
+				 $scope.subType = 'type1'
+			}
+			if($scope.dimentionType.info === 'type2'){
+				$scope.dimentionType.width2 = 0;
+				$scope.subType = 'type2'
+			}
+			if($scope.dimentionType.info === 'type3'){
+				$scope.subType = 'type3'
+			}
+			if($scope.dimentionType.info === 'type4'){
+				$scope.dimentionType.width2 = 0;
+				$scope.subType = 'type4'
+			}
+			if($scope.dimentionType.info === 'type5'){
+				$scope.subType = 'type5'
+			}
+			if($scope.dimentionType.info === 'type6'){
+				$scope.subType = 'type6'
+			}
+			if($scope.dimentionType.info === 'type7'){
+				$scope.subType = 'type7'
+			}
+			$scope.Width = $scope.dimentionType.width;
+			$scope.Width1 = $scope.dimentionType.width1;
+			$scope.Width2 = $scope.dimentionType.width2;
+			$scope.Height = $scope.dimentionType.height;
+			
+			$scope.finalWidth = $scope.Width * 1 + $scope.Width1 * 1 + $scope.Width2 * 1;
+			$scope.finalHeight = $scope.Height;
+			console.log($scope.finalWidth);
+			$scope.finalglassCost = $scope.finalWidth * $scope.finalHeight * $scope.price;
+			if($scope.discTimeless){
+				$scope.finalglassCost = $scope.finalglassCost - $scope.finalglassCost * 0.10;
+			}
+			$scope.finalInstallationCost = $scope.installationCost * $scope.finalWidth * $scope.finalHeight;
+			$scope.marginBiller = $scope.finalglassCost * 0.15;
+		}
+		$scope.info = {};
+		var projectData;
+		if(localStorage.SavedData){
+			projectData = localStorage.getObj('SavedData');
+		}
+		else{
+			projectData = [];
+		}
+		
+		
+		$scope.type_price = function () {
+			var type1_details = {'glasstype':$scope.glassType,'glassnature': 'swing','glasssubclass':$scope.subType, 'width':$scope.Width, 'width1':$scope.Width1,'width2':$scope.Width2,'height':$scope.Height,'email': $scope.Email,'projectname':$scope.info.projectname};
+			console.log(type1_details)
+			$http({
+				url : 'http://ec2-34-205-38-121.compute-1.amazonaws.com:3000/savedata',
+				method : 'post',
+				data : type1_details
+		}).then(function(httpResponse){
+		
+		 if(httpResponse.data.dataUpdated === 'true'){
+		 projectData.push(type1_details)
+		 		
+			localStorage.setObj('SavedData',projectData);
+			alert('data saved successfully')
+		 }else{
+		 console.log(httpResponse)
+		 alert(httpResponse.data.error)
+		 }
+		});
+		}
+		<!-- Compare module -->
+		window.onhashchange = function(){
+			$scope.compare = false;
+			$scope.Cprice = {};
+			$scope.image = {};
+			$scope.CsubType = {};
+			$scope.ItemPrice = {};
+		}
+		$scope.CdimentionType = {};
+
+		$scope.Compare = function() {
+			if($scope.compare != true ){
+				$scope.compare = true;
+			}else{
+				$scope.compare = false;
+			}
+			$scope.image = 'img/types/frame.png';
+			
+		<!-- Type selection Scope -->
+		$scope.CType = function() {
+			var x = document.getElementById("CType").selectedIndex;
+			$scope.CglassType = document.getElementsByTagName("option")[x].value;
+			if($scope.CglassType == 'clear'){$scope.Cprice = 757}
+			if($scope.CglassType == 'parsol'){$scope.Cprice = 779}
+			if($scope.CglassType == 'diamant'){$scope.Cprice = 954}
+			if($scope.CglassType == 'master'){$scope.Cprice = 1190}
+			if($scope.CglassType == 'mirastar'){$scope.Cprice = 1143}
+			if($scope.CglassType == 'timeless'){$scope.Cprice = pricesObj.Glass_Timeles }
+			$scope.getalldata = false;
+			$scope.update();
+		}
+		<!-- Defining width and height of Compare module -->
+		
+		
+		<!-- Sub Type Selection -->
+		$scope.CSubType = function() {
+			$('#view').removeClass('hidden');
+			
+			var xS = document.getElementById("SubType").selectedIndex;
+			$scope.CsubType = document.getElementById("SubType")[xS].value;
+			if($scope.CsubType == 'type1'){
+				$scope.image = 'img/types/type1.jpg';
+				$scope.CdimentionType.width1 = 0;
+				$scope.CdimentionType.width2 = 0;
+				$scope.CdimentionType.width = '';
+				$scope.CdimentionType.height = '';
+				$scope.ItemPrice = $scope.fittings_type1;
+				$scope.QtySiliconSealant = 1;
+				$('#width1').addClass('hidden');
+				$('#width2').addClass('hidden');			
+				
+			}
+			if($scope.CsubType == 'type2'){
+				$scope.image = 'img/types/type2.jpg';
+				$scope.CdimentionType.width2 = 0;
+				$scope.CdimentionType.width1 = '';
+				$scope.CdimentionType.width = '';
+				$scope.CdimentionType.height = '';
+				$scope.ItemPrice = $scope.fittings_type2;
+				$scope.QtySiliconSealant = 1;
+				$('#width2').addClass('hidden');
+				$('#width1').removeClass('hidden');
+			}
+			if($scope.CsubType == 'type3')
+			{
+				$scope.image = 'img/types/type3.jpg';
+				$scope.ItemPrice = $scope.fittings_type3;
+				$scope.QtySiliconSealant = 2;
+				$scope.CdimentionType.width2 = '';
+				$scope.CdimentionType.width = '';
+				$scope.CdimentionType.width1 = '';
+				$scope.CdimentionType.height = '';
+				$('#width1').removeClass('hidden');
+				$('#width2').removeClass('hidden');
+			}
+			if($scope.CsubType == 'type4')
+			{
+				$scope.image = 'img/types/type4.jpg';
+				$scope.CdimentionType.width2 = 0;
+				$scope.CdimentionType.width = '';
+				$scope.CdimentionType.width1 = '';
+				$scope.CdimentionType.height = '';
+				$scope.ItemPrice = $scope.fittings_type4;
+				$scope.QtySiliconSealant = 1;
+				$('#width2').addClass('hidden');
+				$('#width1').removeClass('hidden');
+								
+			}
+			if($scope.CsubType == 'type5')
+			{
+				$scope.image = 'img/types/type5.jpg';
+				$scope.ItemPrice = $scope.fittings_type5;
+				$scope.QtySiliconSealant = 2;
+				$scope.CdimentionType.width2 = '';
+				$scope.CdimentionType.width = '';
+				$scope.CdimentionType.width1 = '';
+				$scope.CdimentionType.height = '';
+				$('#width1').removeClass('hidden');
+				$('#width2').removeClass('hidden');
+			}
+			if($scope.CsubType == 'type6')
+			{
+				$scope.image = 'img/types/type6.jpg';
+				$scope.ItemPrice = $scope.fittings_type6;
+				$scope.QtySiliconSealant = 2;
+				$scope.CdimentionType.width2 = '';
+				$scope.CdimentionType.width = '';
+				$scope.CdimentionType.width1 = '';
+				$scope.CdimentionType.height = '';
+				$('#width1').removeClass('hidden');
+				$('#width2').removeClass('hidden');
+			}
+			if($scope.CsubType == 'type7')
+			{
+				$scope.image = 'img/types/type7.jpg';
+				$scope.ItemPrice = $scope.fittings_type7;
+				$scope.QtySiliconSealant = 2;
+				$scope.CdimentionType.width2 = '';
+				$scope.CdimentionType.width = '';
+				$scope.CdimentionType.width1 = '';
+				$scope.CdimentionType.height = '';
+				$('#width1').removeClass('hidden');
+				$('#width2').removeClass('hidden');
+			}
+			$scope.getalldata = false;
+			$scope.update();
+			
+			<!-- console.log($scope.CdimentionType.width ); -->
+			<!-- console.log($scope.CdimentionType.width1); -->
+			<!-- console.log($scope.CdimentionType.width2); -->
+			<!-- console.log($scope.CdimentionType.height); -->
+		}
+			$scope.update = function() {
+				$scope.CWidth = $scope.CdimentionType.width + $scope.CdimentionType.width1 + $scope.CdimentionType.width2 ;
+				$scope.CHeight = $scope.CdimentionType.height;
+				
+				$scope.finalCInstallationCost = $scope.installationCost * $scope.CWidth * $scope.CHeight;
+				$scope.finalCglassCost = $scope.CWidth * $scope.CHeight * $scope.Cprice;
+				if($scope.CglassType == 'timeless'){
+					$scope.finalCglassCost = $scope.finalCglassCost - $scope.finalCglassCost * 0.10 ;
+				}
+				$scope.CmarginBiller = $scope.finalCglassCost * 0.15;
+				
+				if($scope.CWidth && $scope.CHeight){
+					$scope.getalldata = true;
+					console.log($scope.CWidth,$scope.CHeight);
+					$('#MainImage').removeClass('hidden');
+					$('#CompareImage').removeClass('hidden');
+					$('#price').removeClass('hidden');
+					$('#comparePrice').removeClass('hidden');
+					$('hr').removeClass('hidden');
+				}
+			}
+			
+		}
+		
+		
+		});
+
+	</script>
+	</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+  </head>
+  <body ng-app="admin" ng-controller="adminpanel">
+    <form>
+	
+		<div class="row">
+          <div class="input-field col s12 center">
+            <img src="img/logo.jpg" alt="" class="responsive-img valign profile-image-login">
+            <p class="center login-form-text">SaintGobainCalc - Admin Panel</p>
+          </div>
+        </div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Adjustible_connector" ng-model="data.Adjustible_connector" id="Adjustible_connector" type="number" class="validate">
+				<label class="active" for="Adjustible_connector">Adjustible_connector</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Door_knob" ng-model="data.Door_knob" id="Door_knob" type="number" class="validate">
+				<label class="active" for="Door_knob">Door_knob</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Floor_to_Glass_Bracket" ng-model="data.Floor_to_Glass_Bracket" id="Floor_to_Glass_Bracket" type="number" class="validate">
+				<label class="active" for="Floor_to_Glass_Bracket">Floor_to_Glass_Bracket</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Glass_Timeles" ng-model="data.Glass_Timeles" id="Glass_Timeles" type="number" class="validate">
+				<label class="active" for="Glass_Timeles">Glass_Timeles</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Glass_to_Glass_Bracket_90" ng-model="data.Glass_to_Glass_Bracket_90" id="Glass_to_Glass_Bracket_90" type="number" class="validate">
+				<label class="active" for="Glass_to_Glass_Bracket_90">Glass_to_Glass_Bracket_90</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Glass_to_Glass_Hinge_135" ng-model="data.Glass_to_Glass_Hinge_135" id="Glass_to_Glass_Hinge_135" type="number" class="validate">
+				<label class="active" for="Glass_to_Glass_Hinge_135">Glass_to_Glass_Hinge_135</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Glass_to_Glass_Hinge_180" ng-model="data.Glass_to_Glass_Hinge_180" id="Glass_to_Glass_Hinge_180" type="number" class="validate">
+				<label class="active" for="Glass_to_Glass_Hinge_180">Glass_to_Glass_Hinge_180</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Glass_to_Glass_Hinge_180_Adj" ng-model="data.Glass_to_Glass_Hinge_180_Adj" id="Glass_to_Glass_Hinge_180_Adj" type="number" class="validate">
+				<label class="active" for="Glass_to_Glass_Hinge_180_Adj">Glass_to_Glass_Hinge_180_Adj</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Glass_to_Glass_Hinge_90" ng-model="data.Glass_to_Glass_Hinge_90" id="Glass_to_Glass_Hinge_90" type="number" class="validate">
+				<label class="active" for="Glass_to_Glass_Hinge_90">Glass_to_Glass_Hinge_90</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Installation_Cost" ng-model="data.Installation_Cost" id="Installation_Cost" type="number" class="validate">
+				<label class="active" for="Installation_Cost">Installation_Cost</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Magnetic_seal_2500mm" ng-model="data.Magnetic_seal_2500mm" id="Magnetic_seal_2500mm" type="number" class="validate">
+				<label class="active" for="Magnetic_seal_2500mm">Magnetic_seal_2500mm</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Margin_for_installer" ng-model="data.Margin_for_installer" id="Margin_for_installer" type="number" class="validate">
+				<label class="active" for="Margin_for_installer">Margin_for_installer</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Middle_Seal_2500_long" ng-model="data.Middle_Seal_2500_long" id="Middle_Seal_2500_long" type="number" class="validate">
+				<label class="active" for="Middle_Seal_2500_long">Middle_Seal_2500_long</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Pentagonal_support_bar" ng-model="data.Pentagonal_support_bar" id="Pentagonal_support_bar" type="number" class="validate">
+				<label class="active" for="Pentagonal_support_bar">Pentagonal_support_bar</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Rod_to_Glass_Clamp" ng-model="data.Rod_to_Glass_Clamp" id="Rod_to_Glass_Clamp" type="number" class="validate">
+				<label class="active" for="Rod_to_Glass_Clamp">Rod_to_Glass_Clamp</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Silicon_Sealant" ng-model="data.Silicon_Sealant" id="Silicon_Sealant" type="number" class="validate">
+				<label class="active" for="Silicon_Sealant">Silicon_Sealant</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Sliding_Door" ng-model="data.Sliding_Door" id="Sliding_Door" type="number" class="validate">
+				<label class="active" for="Sliding_Door">Sliding_Door</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Soft_nose_seal_2500" ng-model="data.Soft_nose_seal_2500" id="Soft_nose_seal_2500" type="number" class="validate">
+				<label class="active" for="Soft_nose_seal_2500">Soft_nose_seal_2500</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Support_Bar_2100" ng-model="data.Support_Bar_2100" id="Support_Bar_2100" type="number" class="validate">
+				<label class="active" for="Support_Bar_2100">Support_Bar_2100</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Three_Way_Hinge" ng-model="data.Three_Way_Hinge" id="Three_Way_Hinge" type="number" class="validate">
+				<label class="active" for="Three_Way_Hinge">Three_Way_Hinge</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Towel_rod_cum_handrail" ng-model="data.Towel_rod_cum_handrail" id="Towel_rod_cum_handrail" type="number" class="validate">
+				<label class="active" for="Towel_rod_cum_handrail">Towel_rod_cum_handrail</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Wall_Seal_2500_mm" ng-model="data.Wall_Seal_2500_mm" id="Wall_Seal_2500_mm" type="number" class="validate">
+				<label class="active" for="Wall_Seal_2500_mm">Wall_Seal_2500_mm</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Wall_to_Glass_Bracket" ng-model="data.Wall_to_Glass_Bracket" id="Wall_to_Glass_Bracket" type="number" class="validate">
+				<label class="active" for="Wall_to_Glass_Bracket">Wall_to_Glass_Bracket</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Wall_to_Glass_Hinge" ng-model="data.Wall_to_Glass_Hinge" id="Wall_to_Glass_Hinge" type="number" class="validate">
+				<label class="active" for="Wall_to_Glass_Hinge">Wall_to_Glass_Hinge</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Wall_to_Rod_Connector" ng-model="data.Wall_to_Rod_Connector" id="Wall_to_Rod_Connector" type="number" class="validate">
+				<label class="active" for="Wall_to_Rod_Connector">Wall_to_Rod_Connector</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.Water_disperser_2000" ng-model="data.Water_disperser_2000" id="Water_disperser_2000" type="number" class="validate">
+				<label class="active" for="Water_disperser_2000">Water_disperser_2000</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-value="value.addnl_Margin_for_biller" ng-model="data.addnl_Margin_for_biller" id="addnl_Margin_for_biller" type="number" class="validate">
+				<label class="active" for="addnl_Margin_for_biller">addnl_Margin_for_biller</label>
+			</div>
+		</div>
+		
+		<div class="row">
+          <div class="input-field col s12">
+            <button type="submit" name="submitValues" ng-click="Submit()" value="Submit!" class="btn waves-effect waves-light col s12">Submit</button>
+          </div>
+        </div>
+    </form>
+	<script>
+	var app = angular.module('admin', []);
+	app.controller('adminpanel',function($scope, $http){
+	$scope.Submit = function(){
+		$http({
+			url : 'http://ec2-34-205-38-121.compute-1.amazonaws.com:3000/updatePrices',
+			method : 'post',
+			data : $scope.data
+		}).then(function(httpResponse){
+		console.log($scope.data);
+		if (httpResponse.data.pricesUpdated){alert('successfully updated')}
+		else
+			alert('prices not updated. some error occuring');
+		})
+	}
+	$http.get('http://ec2-34-205-38-121.compute-1.amazonaws.com:3000/updatePrices/data')
+			.then(function(res){
+				$scope.value = res.data;
+			});
+ });
+	</script>
+  </body>
+</html>

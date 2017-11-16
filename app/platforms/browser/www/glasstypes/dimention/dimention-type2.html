@@ -1,0 +1,68 @@
+<div class="row">
+	<div class="col s12 center">
+		<img id="diaImg" class="responsive-img middle" src="img/types/type2.png">
+	</div>
+	<form>
+	<div class="row">
+        <div class="input-field col s12">
+            <i class="large material-icons prefix" style="font-size:30px;margin-left:-3px;">swap_horiz</i>
+            <input id="width1" ng-model="dimentionType.width" ng-init="dimentionType.width = 1" type="number" required>
+            <label class="active" for="width1" class="center-align">Width1</label>
+			<p class="center" ng-if="dimentionType.width > 2">Oops! Max Height is 2</p>
+        </div>
+        </div>
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="large material-icons prefix" style="font-size:30px;margin-left:-3px;">swap_horiz</i>
+				<input id="width2" ng-model="dimentionType.width1" ng-init="dimentionType.width1 = 1" type="number" required>
+				<label class="active" for="width2" class="center-align">Width2</label>
+				<p class="center" ng-if="dimentionType.width1 > 2">Oops! Max Width is 2</p>
+			</div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+				<i class="large material-icons prefix" style="font-size:30px;">swap_vert</i>
+				<input id="height" ng-model="dimentionType.height" ng-init="dimentionType.height = 2" type="number" required>
+				<label class="active" for="height">Height</label>
+				<p class="center" ng-if="dimentionType.height > 2.5">Oops! Max Height is 2.5</p>
+            </div>
+        </div>
+		<input style="display:none;" id="t_info" type="text" ng-model="dimentionType.info" ng-init="dimentionType.info = 'type2' " >
+	<div class="row">
+		<div class="input-field col s12">
+			<a href="#details-type2" type="submit" value="Submit" ng-click="dimention()" class="btn waves-effect waves-light col s12" style="background: #26A69A; text-align: center; min-height:50px;line-height:50px;border-radius:2px;">Get Financial</a>
+		</div>
+    </div>
+	</form>
+	<!-- Modal zoom -->
+  <div id="modalImg" class="modal">
+		<div class="ZoomImg middle">
+			<img id="img" class="ZoomImg-img" src="img/types/type2.png">
+		</div>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+	$('.dimention').addClass('active');
+	$('.price').removeClass('active');
+	$('.compare').removeClass('active');
+	$('#diaImg').click(function() {
+		$('#modalImg').openModal();
+	});
+	
+	var touchtime = 0;
+	$('#modalImg').on('click', function() {
+    if(touchtime == 0) {
+        touchtime = new Date().getTime();
+    } else {
+        if(((new Date().getTime())-touchtime) < 800) {
+           $('#img').toggleClass('ZoomImg-img ZoomImg-zoom'); 
+            touchtime = 0;
+        } else {
+            touchtime = 0;
+        }
+    } 
+	});
+  });
+</script>

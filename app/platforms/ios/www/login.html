@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="white" ng-app="login" ng-controller="loginModule" onload="noBack();">
+  <div id="login-page" class="row">
+    <div class="col s12">
+      <form class="login-form" name="loginform">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <img src="img/logo.jpg" alt="" class="responsive-img valign profile-image-login">
+            <p class="center login-form-text">SaintGobainCalc - Login Form</p>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-social-person-outline prefix"></i>
+            <input id="username" name="username" ng-model="data.username" type="text" class="validate" pattern=".{4,}" required title="username must be 4 character long ">
+            <label for="username" class="center-align">Username</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-action-lock-outline prefix"></i>
+            <input id="password" name="password" ng-model="data.password" type="password" pattern=".{6,}" required title="password must be minimum 6 character long">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">          
+          <div class="input-field col s12 m12 l12  login-text">
+              <input type="checkbox" id="remember-me" />
+              <label for="remember-me">Remember me</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <button type="submit" value="Submit" ng-click="loginform.$valid && Submit()" class="btn waves-effect waves-light col s12">Login</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            <p class="margin medium-small"><a href="register.html">Register Now!</a></p>
+          </div>
+          <div class="input-field col s6 m6 l6">
+              <p class="margin right-align medium-small"><a href="forgot-password.html">Forgot password?</a></p>
+          </div>          
+        </div>
+      </form>
+    </div>
+  </div>
+ <!-- jquery plugin -->
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ <!-- materialize css -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+ <!-- angular plugin -->
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+	window.history.forward();
+	function noBack(){
+		window.history.forward();
+	}
+</script>
+ <script>
+ var app = angular.module('login', []);
+ app.controller('loginModule',function($scope, $http, $window){
+	$scope.Submit = function(){
+		$http({
+			url : 'http://ec2-34-205-38-121.compute-1.amazonaws.com:3000/login',
+			method : 'post',
+			data : $scope.data
+		}).then(function(httpResponse){
+		if (httpResponse.data.loginStatus){
+			localStorage.setItem('username',$scope.data.username);
+			if (httpResponse.data.isAdmin){document.location.href = 'admin.html';}
+			else{
+				document.location.href = 'projectinterface.html';
+			}
+		}
+		else
+			alert('Wrong login info');
+		})
+	}
+	$http.get('http://ec2-34-205-38-121.compute-1.amazonaws.com:3000/updatePrices/data')
+			.then(function(res){
+			var pricesObj = res.data;
+			for (var items in pricesObj) {
+				pricesObj[items] = parseFloat(pricesObj[items])
+				}
+	localStorage.setItem('data', JSON.stringify(pricesObj));
+	
+	});
+ });
+ </script>
+ </body>
+</html>

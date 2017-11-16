@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+  </head>
+  <body>
+    <form method="post" action="/change-password">
+
+		<div class="row">
+          <div class="input-field col s12 center">
+            <img src="img/logo.jpg" alt="" class="responsive-img valign profile-image-login">
+            <p class="center login-form-text">SaintGobainCalc - Change Your Password Here</p>
+          </div>
+        </div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="password" class="validate" name="password" type="password" pattern=".{6,}" required title="password must be minimum 6 character long">
+				<label class="active" for="New Password">New Password</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="confirm_password" class="validate" type="password" pattern=".{6,}" required title="password must be minimum 6 character long">
+				<label class="active" for="Confirm Password">Confirm Password</label>
+			</div>
+		</div>
+		<div class="row">
+          <div class="input-field col s12">
+            <button type="submit" class="btn waves-effect waves-light col s12">Submit</button>
+          </div>
+        </div>
+    </form>
+	<script>
+	var password = document.getElementById("password")
+	, confirm_password = document.getElementById("confirm_password");
+
+	function validatePassword(){
+	if(password.value != confirm_password.value) {
+		confirm_password.setCustomValidity("Passwords Don't Match");
+	} else {
+		confirm_password.setCustomValidity('');
+	}
+	}
+
+	password.onchange = validatePassword;
+	confirm_password.onkeyup = validatePassword;
+	</script>
+  </body>
+</html>
